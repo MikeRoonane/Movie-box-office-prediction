@@ -1,0 +1,27 @@
+============================================================================
+BOX OFFICE SUCCESS PREDICTION — MODEL RESULTS REPORT
+Authors: I.Parthiban 23BCE2282 | Mike Roonane Fernandez 23BCE2062
+============================================================================
+
+── Table 1: Regression Model Comparison ───────────────────────────────
+            Model    MAE   RMSE      R²  MAPE (%)
+          XGBoost 0.3199 0.5050  0.8924    1.8381
+Stacking Ensemble 0.3279 0.5152  0.8880    1.8777
+     RandomForest 0.4554 0.6775  0.8063    2.6633
+    NeuralNetwork 0.7604 1.6078 -0.0908    4.2560
+
+── Table 2: Classification Model Comparison ───────────────────────────
+            Model  Accuracy  Precision  Recall  F1-Score  AUC-ROC
+     RandomForest    0.8366     0.8446  0.8244    0.8281   0.9406
+Stacking Ensemble    0.8366     0.8401  0.8244    0.8283   0.9057
+          XGBoost    0.8218     0.8256  0.8082    0.8122   0.9388
+    NeuralNetwork    0.6782     0.6632  0.6465    0.6491   0.8700
+
+── Statistical Significance Testing (Section 4.3) ─────────────────────
+  Stacking vs XGBoost (Regression)                    t=+1.459  p=0.1454  → ✗ NOT significant
+  Stacking vs XGBoost (Classification)                t=-1.607  p=0.1089  → ✗ NOT significant
+  Stacking vs RF (Regression)                         t=-7.784  p=0.0000  → ✓ SIGNIFICANT
+  Stacking vs RF (Classification)                     t=+0.000  p=1.0000  → ✗ NOT significant
+
+Note: All results computed on the held-out test set (chronological split).
+============================================================================
