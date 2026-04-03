@@ -243,8 +243,6 @@ python model_training.py
 
 **Expected runtime:** 5–15 minutes (SHAP computation is the slowest step)
 
-> ⚠️ **Note:** If you see a warning about the test set being too small (fewer than 50 films after 2022 in the TMDB 5000 dataset), the script automatically falls back to a 70/15/15 chronological split. This is expected behaviour — the TMDB 5000 dataset covers mostly pre-2017 films.
-
 ---
 
 ### Stage 3 — Launch the Streamlit App
@@ -323,40 +321,6 @@ Once the app is open at `http://localhost:8501`:
 
 **Tab 3 — Comparable Films**
 - Three real films that performed at a similar level to your prediction
-
----
-
-## 🔧 Troubleshooting
-
-**`ModuleNotFoundError: No module named 'xgboost'`**
-```bash
-pip install xgboost
-```
-
-**`FileNotFoundError: tmdb_5000_movies.csv not found`**
-Make sure both CSV files are in the *same folder* as your `.py` files, not in a subfolder.
-
-**`processed_movies.csv not found — run data_pipeline.py first`**
-You must run `data_pipeline.py` before `model_training.py`. Run them in order.
-
-**App opens but shows "Demo mode — models not found"**
-You need to run `model_training.py` successfully first so the `models/` folder is created.
-
-**SHAP computation is very slow or crashes**
-The SHAP step uses a subsample of 500 training rows to keep it manageable. If it still crashes due to memory, open `model_training.py` and on the line `shap_vals = explainer.shap_values(X_train[:500])` reduce `500` to `200`.
-
-**`streamlit: command not found`**
-```bash
-pip install streamlit
-# If still not found, try:
-python -m streamlit run streamlit_app.py
-```
-
-**Port 8501 already in use**
-```bash
-streamlit run streamlit_app.py --server.port 8502
-```
-Then open `http://localhost:8502` in your browser.
 
 ---
 
