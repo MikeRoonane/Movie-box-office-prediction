@@ -1,7 +1,6 @@
 # 🎬 Box Office Success Prediction
 ### Multi-Source Big Data & Machine Learning with IMDb Metadata
 
-> **Capstone Project — VIT Chennai, 2026**
 > I. Parthiban `23BCE2282` · Mike Roonane Fernandez `23BCE2062`
 
 ---
